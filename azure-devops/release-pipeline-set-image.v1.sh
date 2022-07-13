@@ -67,7 +67,8 @@ for CONTAINER in ${!IMGS[@]};do
     LIST="$LIST $CONTAINER=$CONTAINER_REGISTRY/${IMGS[$CONTAINER]}:$BUILD_BUILDNUMBER"
 done
 kubectl set -n $NS image deployment/$DPL $LIST
-kubectl rollout status deployment -n $NS $DPL
+kubectl rollout status --timeout=180s deployment -n $NS $DPL
+kubectl wait --for=condition=ready --timeout=180s pod -n $NS -l app=$DPL
 
 echo work is done, now waiting $WAIT sec for images to update and then check results ...
 sleep $WAIT
