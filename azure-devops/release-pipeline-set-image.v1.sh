@@ -16,17 +16,17 @@ WAIT=20         ### how long to wait before result checks
 
 CONTAINER_REGISTRY=$1
 [ -z "$CONTAINER_REGISTRY" ] && echo "##[error]need container registry as first argument to script" && exit 7
-echo will work with containet registry=$CONTAINER_REGISTRY
+echo container registry=$CONTAINER_REGISTRY
 shift
 
 NS=$1    ### kubernetes namespace
 [ -z "$NS" ] && echo "##[error]need namespace as second argument to script" && exit 9
-echo will work on namespace=$NS
+echo namespace=$NS
 shift
 
 DPL=$1   ### deployment/app name
 [ -z "$DPL" ] && echo "##[error]need deployment name as third argument to script" && exit 8
-echo will work on deployment=$DPL
+echo deployment=$DPL
 shift
 
 echo will deploy container=image :
