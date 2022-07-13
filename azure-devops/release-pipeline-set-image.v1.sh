@@ -6,7 +6,7 @@ WAIT=20         ### how long to wait before result checks
 
 ############## stop edit here ##################
 
-[ -z `expr match $BUILD_BUILDNUMBER '^\([0-9]\+\.[0-9]\+\.[0-9]\+\)$'` ] \
+[ -z `expr match "$BUILD_BUILDNUMBER" '^\([0-9]\+\.[0-9]\+\.[0-9]\+\)$'` ] \
     && echo "##[error]BUILD_BUILDNUMBER=$BUILD_BUILDNUMBER is not in format M.m.p" >&2 \
     && exit 0
 
