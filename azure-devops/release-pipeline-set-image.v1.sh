@@ -10,9 +10,9 @@ WAIT=20         ### how long to wait before result checks
     && echo "##[error]BUILD_BUILDNUMBER=$BUILD_BUILDNUMBER is not in format M.m.p" >&2 \
     && exit 0
 
-[ ! -d "$RELEASE_PRIMARYARTIFACTSOURCEALIAS" ] \
-    && echo "##[error]primary artifact $RELEASE_PRIMARYARTIFACTSOURCEALIAS is not present -> no deployment" >&2 \
-    && exit 0
+#[ ! -d "$RELEASE_PRIMARYARTIFACTSOURCEALIAS" ] \
+#    && echo "##[error]primary artifact $RELEASE_PRIMARYARTIFACTSOURCEALIAS is not present -> no deployment" >&2 \
+#    && exit 0
 
 CONTAINER_REGISTRY=$1
 [ -z "$CONTAINER_REGISTRY" ] && echo "##[error]need container registry as first argument to script" && exit 7
